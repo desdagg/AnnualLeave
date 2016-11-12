@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHandler extends SQLiteOpenHelper{
 
+    //database variables
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "AnnualLeave.db";
 
@@ -22,6 +23,7 @@ public class DBHandler extends SQLiteOpenHelper{
     public static final String COLUMN_EMPLOYEE_ID = "_id";
     public static final String COLUMN_LEAVE = "_leave";
 
+    //database creates
     String CREATE_EMPLOYEES_TABLE = "CREATE TABLE" + TABLE_EMPLOYEES + "(" + COLUMN_EMPLOYEE_ID + " INTEGER PRIMARY KEY, " + COLUMN_EMPLOYEE_NAME + " TEXT NOT NULL, "
             + COLUMN_EMPLOYEE_EMAIL + " TEXT, " + COLUMN_EMPLOYEE_MANAGERID + " INTEGER, " + COLUMN_LEAVE + " INTEGER);";
 
