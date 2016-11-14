@@ -8,16 +8,18 @@ public class Employees {
 
     private String _name;
     private String _emailAddress;
-    private int _managerID;
-    private int _id;
-    private int _leave;
+    private String _managerID;
+    private String _id;
+    private String _leave;
+    private String _password;
 
-    public Employees(String name, String emailAddress, int managerID, int id, int leave){
+    public Employees(String name, String emailAddress, String managerID, String id, String leave, String password){
         this._name = name;
         this._emailAddress = emailAddress;
         this._managerID = managerID;
         this._id = id;
         this._leave = leave;
+        this._password = password;
     }
 
     public Employees(){
@@ -25,7 +27,7 @@ public class Employees {
     }
 
     //getters
-    public int get_leave() {
+    public String get_leave() {
         return _leave;
     }
 
@@ -37,12 +39,16 @@ public class Employees {
         return _emailAddress;
     }
 
-    public int get_managerID() {
+    public String get_managerID() {
         return _managerID;
     }
 
-    public int get_id() {
+    public String get_id() {
         return _id;
+    }
+
+    public String get_password() {
+        return _password;
     }
 
     //setters
@@ -54,16 +60,20 @@ public class Employees {
         this._emailAddress = _emailAddress;
     }
 
-    public void set_managerID(int _managerID) {
+    public void set_managerID(String _managerID) {
         this._managerID = _managerID;
     }
 
-    public void set_id(int _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
-    public void set_leave(int _leave) {
+    public void set_leave(String _leave) {
         this._leave = _leave;
+    }
+
+    public void set_password(String _password) {
+        this._password = _password;
     }
 }
 

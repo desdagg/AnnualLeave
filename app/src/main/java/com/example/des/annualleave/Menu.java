@@ -13,6 +13,7 @@ import android.widget.Button;
 public class Menu extends AppCompatActivity{
 
     Button createEmployee;
+    Button employeeList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,19 @@ public class Menu extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //do database check for login details
-                Intent intent = new Intent(Menu.this, CreateEmployee.class);
-                startActivity(intent);
+                Intent create = new Intent(Menu.this, CreateEmployee.class);
+                startActivity(create);
             }
         });
+
+        employeeList = (Button) findViewById(R.id.employeeList_button);
+        employeeList.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent empList = new Intent(Menu.this, EmployeeList.class);
+                startActivity(empList);
+            }
+        });
+
     }
 }
