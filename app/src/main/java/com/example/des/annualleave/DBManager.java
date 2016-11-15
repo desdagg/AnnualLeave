@@ -55,7 +55,7 @@ public class DBManager {
     }
 
     //insert values into the database
-    public void insert(String name, String email, String mID, String eID, String leave, String password){
+    public void insert(String name, String email, String mID, String eID, String leave, String password, String role){
         ContentValues values = new ContentValues();
         values.put(DBHandler.COLUMN_EMPLOYEE_NAME, name);
         values.put(DBHandler.COLUMN_EMPLOYEE_EMAIL, email);
@@ -63,6 +63,7 @@ public class DBManager {
         values.put(DBHandler.COLUMN_EMPLOYEE_ID, eID);
         values.put(DBHandler.COLUMN_LEAVE, leave);
         values.put(DBHandler.COLUMN_EMPLOYEE_PASSWORD, password);
+        values.put(DBHandler.COLUMN_ROLE, role);
 
         //try catch for inserts
         try{
@@ -71,6 +72,27 @@ public class DBManager {
         }catch(SQLiteException e){
             Log.e("DB exception: ","",e);
         }
+    }
+
+    //validate user login -- probably wont use this
+    /*
+    public String loginValidate(String username, String password){
+        String access = "invalid";
+        //select COLUMN_ROLE from employees where username = COLUMN_EMPLOYEE_EMAIL and password = COLUMN_EMPLOYEE_PASSWORD
+
+        return access;
+    }
+
+    */
+
+    //get the login details for validating
+    public Cursor getLoginDetails(){
+        myDatabase = dbHandler.getReadableDatabase();
+        String[] employees = new String[]{DBHandler.COLUMN_EMPLOYEE_EMAIL, DBHandler.COLUMN_EMPLOYEE_PASSWORD,
+                DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_ROLE};
+        Cursor cursor = myDatabase.query(DBHandler.TABLE_EMPLOYEES, employees,null,null,null,null,null);
+        return cursor;
+
     }
 
 

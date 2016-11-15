@@ -35,37 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Email Address"
+        android:hint="Password"
         android:ems="10"
-        android:id="@+id/employee_Email"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/employee_Name"
-        android:layout_alignLeft="@+id/employee_Name"
-        android:layout_alignStart="@+id/employee_Name" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Manager ID"
-        android:ems="10"
-        android:id="@+id/employee_ManagerID"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/employee_Email"
-        android:layout_alignLeft="@+id/employee_Email"
-        android:layout_alignStart="@+id/employee_Email" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Employee's ID"
-        android:ems="10"
-        android:id="@+id/employee_ID"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/employee_ManagerID"
-        android:layout_alignLeft="@+id/employee_ManagerID"
-        android:layout_alignStart="@+id/employee_ManagerID" />
+        android:id="@+id/employee_password"
+        android:layout_below="@+id/leave_Days"
+        android:layout_alignLeft="@+id/leave_Days"
+        android:layout_alignStart="@+id/leave_Days" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -74,7 +49,6 @@
         android:ems="10"
         android:id="@+id/leave_Days"
         android:hint="Amount Of Leave"
-        android:layout_marginTop="22dp"
         android:layout_below="@+id/employee_ID"
         android:layout_alignLeft="@+id/employee_ID"
         android:layout_alignStart="@+id/employee_ID" />
@@ -83,11 +57,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Password"
+        android:hint="Employee's ID"
         android:ems="10"
-        android:layout_above="@+id/addEmployee_Button"
-        android:layout_alignRight="@+id/leave_Days"
-        android:layout_alignEnd="@+id/leave_Days"
-        android:layout_marginBottom="11dp"
-        android:id="@+id/employee_password" />
+        android:id="@+id/employee_ID"
+        android:layout_below="@+id/employee_ManagerID"
+        android:layout_alignLeft="@+id/employee_ManagerID"
+        android:layout_alignStart="@+id/employee_ManagerID" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Manager ID"
+        android:ems="10"
+        android:id="@+id/employee_ManagerID"
+        android:layout_below="@+id/employee_Email"
+        android:layout_alignLeft="@+id/employee_Email"
+        android:layout_alignStart="@+id/employee_Email" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Email Address"
+        android:ems="10"
+        android:id="@+id/employee_Email"
+        android:layout_below="@+id/employee_Name"
+        android:layout_alignLeft="@+id/employee_Name"
+        android:layout_alignStart="@+id/employee_Name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="admin/employee"
+        android:layout_below="@+id/employee_password"
+        android:layout_alignLeft="@+id/employee_password"
+        android:layout_alignStart="@+id/employee_password"
+        android:id="@+id/employee_role" />
+
 </RelativeLayout>

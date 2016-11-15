@@ -23,6 +23,7 @@ public class DBHandler extends SQLiteOpenHelper{
     public static final String COLUMN_EMPLOYEE_ID = "_id";
     public static final String COLUMN_LEAVE = "_leave";
     public static final String COLUMN_EMPLOYEE_PASSWORD = "_password";
+    public static final String COLUMN_ROLE = "_role";
 
     public static final String ADMIN_NAME = "admin1";
     public static final String ADMIN_EMAIL = "admin2";
@@ -30,11 +31,12 @@ public class DBHandler extends SQLiteOpenHelper{
     public static final String ADMIN_PASSWORD = "admin3";
     public static final String ADMIN_MID = "0";
     public static final String ADMIN_LEAVE = "0";
+    public static final String ADMIN_ROLE = "admin";
 
     //database creates
     private String CREATE_EMPLOYEES_TABLE = "CREATE TABLE " + TABLE_EMPLOYEES + "(" + COLUMN_EMPLOYEE_ID + " TEXT PRIMARY KEY, "
             + COLUMN_EMPLOYEE_NAME + " TEXT NOT NULL, " +COLUMN_EMPLOYEE_PASSWORD + " TEXT NOT NULL, "
-            + COLUMN_EMPLOYEE_EMAIL + " TEXT, " + COLUMN_EMPLOYEE_MANAGERID + " TEXT, " + COLUMN_LEAVE + " TEXT);";
+            + COLUMN_EMPLOYEE_EMAIL + " TEXT, " + COLUMN_EMPLOYEE_MANAGERID + " TEXT, " + COLUMN_LEAVE + " TEXT, " + COLUMN_ROLE + " TEXT NOT NULL);";
 
     public DBHandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +44,7 @@ public class DBHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_EMPLOYEES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EMPLOYEES);
         db.execSQL(CREATE_EMPLOYEES_TABLE);
         //auto insert admin
         ContentValues adminValues = new ContentValues();
@@ -52,6 +54,7 @@ public class DBHandler extends SQLiteOpenHelper{
         adminValues.put(COLUMN_EMPLOYEE_EMAIL, ADMIN_EMAIL);
         adminValues.put(COLUMN_EMPLOYEE_MANAGERID, ADMIN_MID);
         adminValues.put(COLUMN_LEAVE, ADMIN_LEAVE);
+        adminValues.put(COLUMN_ROLE, ADMIN_ROLE);
         db.insert(TABLE_EMPLOYEES, null, adminValues);
     }
 

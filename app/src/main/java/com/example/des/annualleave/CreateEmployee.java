@@ -19,6 +19,7 @@ public class CreateEmployee extends AppCompatActivity implements View.OnClickLis
     private EditText employeeID;
     private EditText leaveAlotted;
     private EditText employeePassword;
+    private EditText role;
     private Button addEmployee;
 
     private DBManager dbManager;
@@ -38,6 +39,7 @@ public class CreateEmployee extends AppCompatActivity implements View.OnClickLis
         employeeID = (EditText) findViewById(R.id.employee_ID);
         leaveAlotted = (EditText) findViewById(R.id.leave_Days);
         employeePassword = (EditText) findViewById(R.id.employee_password);
+        role = (EditText) findViewById(R.id.employee_role);
         //connect the button
         addEmployee = (Button) findViewById(R.id.addEmployee_Button);
 
@@ -58,8 +60,9 @@ public class CreateEmployee extends AppCompatActivity implements View.OnClickLis
                 final String eId = employeeID.getText().toString();
                 final String leave = leaveAlotted.getText().toString();
                 final String password = employeePassword.getText().toString();
+                final String eRole = role.getText().toString();
 
-                dbManager.insert(name,email,mId,eId,leave,password);
+                dbManager.insert(name,email,mId,eId,leave,password,eRole);
                 //go back to menu when inserted    -- will change to list probably
                // Intent menu = new Intent(CreateEmployee.this, Menu.class);
                 //startActivity(menu);
