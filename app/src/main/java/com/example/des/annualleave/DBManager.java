@@ -36,7 +36,7 @@ public class DBManager {
     }
 
     //select values from the database
-    public Cursor select(){
+    public Cursor selectEmployees(){
         String[] employees = new String[] {DBHandler.COLUMN_EMPLOYEE_ID,
                 DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_EMPLOYEE_EMAIL,
                 DBHandler.COLUMN_EMPLOYEE_MANAGERID, DBHandler.COLUMN_LEAVE,
@@ -53,6 +53,27 @@ public class DBManager {
         }
         return cursor;
     }
+
+    public Cursor selectRequests(){
+        String[] requests = new String[] {DBHandler.COLUMN_REQUEST_ID,
+                DBHandler.COLUMN_REQUEST_START_DATE, DBHandler.COLUMN_REQUEST_END_DATE,
+                DBHandler.COLUMN_REQUEST_STATUS, DBHandler.COLUMN_REQUEST_EMPLOYEE_ID};
+        Cursor cursor = null;
+
+        try{
+            cursor = myDatabase.query(DBHandler.TABLE_REQUESTS, requests,null,null,null,null,null);
+            if (cursor != null){
+                cursor.moveToFirst();
+                System.out.println("yo in manager: " + cursor.getPosition());
+            }
+        }catch (SQLiteException e){
+            Log.e("DB exception: ", "",e);
+        }
+        return cursor;
+    }
+
+
+
 
     //insert values into the database
     public void insert(String name, String email, String mID, String eID, String leave, String password, String role){
@@ -74,22 +95,28 @@ public class DBManager {
         }
     }
 
-    //validate user login -- probably wont use this
-    /*
-    public String loginValidate(String username, String password){
-        String access = "invalid";
-        //select COLUMN_ROLE from employees where username = COLUMN_EMPLOYEE_EMAIL and password = COLUMN_EMPLOYEE_PASSWORD
+    public void insertRequest(String start, String end, String status, String userId){
+        ContentValues values = new ContentValues();
+        values.put(DBHandler.COLUMN_REQUEST_START_DATE, start);
+        values.put(DBHandler.COLUMN_REQUEST_END_DATE, end);
+        values.put(DBHandler.COLUMN_REQUEST_STATUS, status);
+        values.put(DBHandler.COLUMN_REQUEST_EMPLOYEE_ID, userId);
 
-        return access;
+        try{
+            myDatabase.insert(DBHandler.TABLE_REQUESTS, null, values);
+            dbHandler.close();
+        }catch(SQLiteException e){
+            Log.e("DB exception: ","",e);
+        }
     }
 
-    */
+
 
     //get the login details for validating
     public Cursor getLoginDetails(){
         myDatabase = dbHandler.getReadableDatabase();
         String[] employees = new String[]{DBHandler.COLUMN_EMPLOYEE_EMAIL, DBHandler.COLUMN_EMPLOYEE_PASSWORD,
-                DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_ROLE};
+                DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_ROLE, DBHandler.COLUMN_EMPLOYEE_ID};
         Cursor cursor = myDatabase.query(DBHandler.TABLE_EMPLOYEES, employees,null,null,null,null,null);
         return cursor;
 

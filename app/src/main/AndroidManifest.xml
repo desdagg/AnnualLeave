@@ -16,10 +16,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Menu">
-            </activity>
+        </activity>
         <activity android:name=".CreateEmployee">
-            </activity>
+        </activity>
         <activity android:name=".EmployeeList">
+        </activity>
+        <activity android:name=".CreateNewRequest">
+        </activity>
+        <activity android:name=".RequestList">
         </activity>
     </application>
 

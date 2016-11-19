@@ -56,7 +56,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:hint="Employee's ID"
         android:ems="10"
         android:id="@+id/employee_ID"
@@ -67,7 +67,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:hint="Manager ID"
         android:ems="10"
         android:id="@+id/employee_ManagerID"

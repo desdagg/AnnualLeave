@@ -25,17 +25,19 @@ public class EmployeeList extends AppCompatActivity {
             DBHandler.COLUMN_EMPLOYEE_PASSWORD};
 
     //employee_view id's
-    final int[] to = new int[] {R.id.employee_ID, R.id.employee_Name, R.id.employee_Email, R.id.employee_ManagerID};
+    final int[] to = new int[] {R.id.employee_ID, R.id.employee_Name,
+                                R.id.employee_Email, R.id.employee_ManagerID};
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        setTitle("Employees");
         setContentView(R.layout.employee_list);
 
         DBManager dbManager = new DBManager(this);
         dbManager.open();
         //creating cursor and calling select in dbmanager
-        Cursor cursor = dbManager.select();
+        Cursor cursor = dbManager.selectEmployees();
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
@@ -44,9 +46,5 @@ public class EmployeeList extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
-
-
-
-
     }
 }

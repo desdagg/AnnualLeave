@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String currentName = "";
     private String access = "invalid";
+    public String currentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +51,29 @@ public class MainActivity extends AppCompatActivity {
                     if(user.equals(cursor.getString(0)) && pword.equals(cursor.getString(1))){
                         currentName = cursor.getString(2);
                         access = cursor.getString(3);
+
+                        CurrentUser currentUser = new CurrentUser(cursor.getString(2));
+                        currentUser.setId(cursor.getString(4));
+
+                        currentUserId = cursor.getString(4);
                     }
                 }while(cursor.moveToNext());
 
                // access = dbManager.loginValidate(user, pword);
 
+                //
+                //should probable make this better
+                //
                 if (access.equals("admin")) {
-                    Toast.makeText(MainActivity.this, "Welcome " + currentName + "\n Current role is: admin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Welcome " + currentName + "\n Current role is: admin \n and id of: " + currentUserId, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, Menu.class);
+                    //pass the id of the current user
+                    intent.putExtra("key", currentUserId);
                     startActivity(intent);
                 }else if (access.equals("employee")){
                     Toast.makeText(MainActivity.this, "Welcome " + currentName + "\n Current role is: employee", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, Menu.class);
+                    intent.putExtra("key", currentUserId);
                     startActivity(intent);
                 }
                 else{
@@ -70,5 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public String getUserId(){
+        return currentUserId;
     }
 }
