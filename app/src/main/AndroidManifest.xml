@@ -15,6 +15,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Menu">
+        </activity>
+        <activity android:name=".AdminMenu">
+        </activity>
+        <activity android:name=".EmployeeMenu">
+        </activity>
+        <activity android:name=".ManagerMenu">
+        </activity>
+        <activity android:name=".EmployeeRequestList">
+        </activity>
+        <activity android:name=".CreateEmployee">
+        </activity>
+        <activity android:name=".EmployeeList">
+        </activity>
+        <activity android:name=".CreateNewRequest">
+        </activity>
+        <activity android:name=".RequestList">
+        </activity>
     </application>
 
 </manifest>
