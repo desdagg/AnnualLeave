@@ -4,8 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:weightSum="1"
     android:background="@color/colorBackground">
+=======
+    android:weightSum="1">
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
 
     <Button

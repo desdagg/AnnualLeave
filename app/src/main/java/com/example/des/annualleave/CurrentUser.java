@@ -1,12 +1,16 @@
 package com.example.des.annualleave;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 /**
  * Created by Des on 18/11/2016.
  */
 
 public class CurrentUser {
+<<<<<<< HEAD
 
     private static CurrentUser userInstance;
 
@@ -21,6 +25,12 @@ public class CurrentUser {
     }
 
     private CurrentUser(String n){
+=======
+    private String name;
+    private String id;
+
+    public CurrentUser(String n){
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         name = n;
     }
 

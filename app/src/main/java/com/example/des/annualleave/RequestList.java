@@ -1,17 +1,26 @@
 package com.example.des.annualleave;
 
+<<<<<<< HEAD
 import android.app.Dialog;
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+<<<<<<< HEAD
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
 /**
  * Created by Des on 15/11/2016.
@@ -19,6 +28,7 @@ import android.widget.Toast;
 
 public class RequestList extends AppCompatActivity {
 
+<<<<<<< HEAD
     private DBManager dbManager;
     private ListView requestlistView;
     private Button addRequest;
@@ -36,6 +46,19 @@ public class RequestList extends AppCompatActivity {
 
     //request_view id's
     final int[] to1 = new int[] {/*R.id.req_id,*/ R.id.req_start_date,
+=======
+    private ListView requestlistView;
+    private Button addRequest;
+
+    private String currentUserId;
+
+    final String[] from1 = new String[]{ DBHandler.COLUMN_REQUEST_ID,
+            DBHandler.COLUMN_REQUEST_START_DATE, DBHandler.COLUMN_REQUEST_END_DATE,
+            DBHandler.COLUMN_REQUEST_STATUS, DBHandler.COLUMN_REQUEST_EMPLOYEE_ID};
+
+    //request_view id's
+    final int[] to1 = new int[] {R.id.req_id, R.id.req_start_date,
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
             R.id.req_end_date, R.id.req_status, R.id.req_emp_id};
 
     @Override
@@ -49,6 +72,7 @@ public class RequestList extends AppCompatActivity {
         }
         setContentView(R.layout.request_list);
 
+<<<<<<< HEAD
         dbManager = DBManager.getInstance(this);
 
         //create cursor for getting the employees requests from dbManager
@@ -57,10 +81,21 @@ public class RequestList extends AppCompatActivity {
         requestlistView = (ListView) findViewById(R.id.request_list_view);
         requestlistView.setEmptyView(findViewById(R.id.request_empty));
         //i probably dont need this anymore
+=======
+        DBManager dbManager = new DBManager(this);
+        dbManager.open();
+
+        //creating cursor and calling select in dbmanager
+        Cursor cursor = dbManager.selectRequests();
+
+        requestlistView = (ListView) findViewById(R.id.request_list_view);
+        requestlistView.setEmptyView(findViewById(R.id.request_empty));
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         for (int i = 0 ; i<cursor.getCount() ; i++) {
             System.out.println("yo its : " + cursor.getString(0));
             cursor.moveToNext();
         }
+<<<<<<< HEAD
         //check if a list item has been pressed and show the dialogue box
         //passing in the id of the clicked request
         requestlistView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -78,6 +113,15 @@ public class RequestList extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         requestlistView.setAdapter(adapter);
 
+=======
+
+        //if here maybe
+        //if(currentUserId.equals(cursor.getString(4))) {
+            SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.request_view, cursor, from1, to1, 0);
+            adapter.notifyDataSetChanged();
+            requestlistView.setAdapter(adapter);
+        //}
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
         addRequest = (Button) findViewById(R.id.add_request_button);
         addRequest.setOnClickListener(new View.OnClickListener(){
@@ -88,6 +132,7 @@ public class RequestList extends AppCompatActivity {
                 startActivity(addReq);
             }
         });
+<<<<<<< HEAD
     }
 
 
@@ -126,5 +171,9 @@ public class RequestList extends AppCompatActivity {
         });
 
         requestDialog.show();
+=======
+
+
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     }
 }

@@ -37,7 +37,11 @@ public class DBHandler extends SQLiteOpenHelper{
     //admin details
     public static final String ADMIN_NAME = "admin";
     public static final String ADMIN_EMAIL = "a1";
+<<<<<<< HEAD
     public static final String ADMIN_ID = "9001";
+=======
+    public static final String ADMIN_ID = "1001";
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     public static final String ADMIN_PASSWORD = "p1";
     public static final String ADMIN_MID = "0";
     public static final String ADMIN_LEAVE = "0";
@@ -101,6 +105,7 @@ public class DBHandler extends SQLiteOpenHelper{
         reqValues.put(COLUMN_REQUEST_EMPLOYEE_ID, REQ_EMP_ID);
         db.insert(TABLE_EMPLOYEES, null, adminValues);
         db.insert(TABLE_REQUESTS, null, reqValues);
+<<<<<<< HEAD
 
         //auto insert a manager
         ContentValues empValues = new ContentValues();
@@ -112,6 +117,8 @@ public class DBHandler extends SQLiteOpenHelper{
         empValues.put(COLUMN_LEAVE, "10");
         empValues.put(COLUMN_ROLE, "manager");
         db.insert(TABLE_EMPLOYEES, null, empValues);
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     }
 
     @Override
@@ -120,4 +127,33 @@ public class DBHandler extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REQUESTS);
         onCreate(db);
     }
+<<<<<<< HEAD
+=======
+
+    //adding an employee
+    //might move this to DBManager class
+    /*
+    public void addEmployee(Employees employee){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_EMPLOYEE_NAME, employee.get_name());
+        values.put(COLUMN_EMPLOYEE_EMAIL, employee.get_emailAddress());
+        values.put(COLUMN_EMPLOYEE_MANAGERID, employee.get_managerID());
+        values.put(COLUMN_EMPLOYEE_ID, employee.get_id());
+        values.put(COLUMN_LEAVE, employee.get_leave());
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_EMPLOYEES, null, values);
+        db.close();
+    }
+
+    //deleting an employee
+    //do this later
+    public void deleteEmployee(){
+
+        SQLiteDatabase db = getWritableDatabase();
+        //db.execSQL("DELETE FROM " + TABLE_EMPLOYEES + " WHERE " something + "=\"" + somethingIn + "\";");
+
+    }
+    */
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 }

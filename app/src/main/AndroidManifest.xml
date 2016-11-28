@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".Menu">
         </activity>
+<<<<<<< HEAD
         <activity android:name=".AdminMenu">
         </activity>
         <activity android:name=".EmployeeMenu">
@@ -25,6 +26,8 @@
         </activity>
         <activity android:name=".EmployeeRequestList">
         </activity>
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         <activity android:name=".CreateEmployee">
         </activity>
         <activity android:name=".EmployeeList">

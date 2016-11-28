@@ -26,6 +26,11 @@ public class CreateNewRequest extends AppCompatActivity{
     private String currentUserId;
     private DBManager dbManager;
 
+<<<<<<< HEAD
+=======
+    //public String userId = CurrentUser.getId();
+
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     Calendar myCalendar = Calendar.getInstance();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +65,13 @@ public class CreateNewRequest extends AppCompatActivity{
             }
         });
 
+<<<<<<< HEAD
         //get the database instance
         dbManager = DBManager.getInstance(this);
+=======
+        dbManager = new DBManager(this);
+        dbManager.open();
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
         //add the dates to database
         submit.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +84,10 @@ public class CreateNewRequest extends AppCompatActivity{
                         final String status = "Pending";
                         final String userId = currentUserId;
 
+<<<<<<< HEAD
                         //pass the data into the dbManager for inserting
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
                         dbManager.insertRequest(start,end,status,userId);
                         finish();
                         break;
@@ -83,7 +96,10 @@ public class CreateNewRequest extends AppCompatActivity{
         });
     }
 
+<<<<<<< HEAD
     //set the date to the user selected date and update the label
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -91,9 +107,15 @@ public class CreateNewRequest extends AppCompatActivity{
             myCalendar.set(Calendar.MONTH, month);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateLabel();
+<<<<<<< HEAD
         }
     };
 
+=======
+
+        }
+    };
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     DatePickerDialog.OnDateSetListener dateEnd = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -101,16 +123,28 @@ public class CreateNewRequest extends AppCompatActivity{
             myCalendar.set(Calendar.MONTH, month);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateLabelEnd();
+<<<<<<< HEAD
         }
     };
 
     //make sure the date is in the right format and set the edit text to the selected date
+=======
+
+        }
+    };
+
+
+
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
         startDateText.setText(sdf.format(myCalendar.getTime()));
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     private void updateLabelEnd() {
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);

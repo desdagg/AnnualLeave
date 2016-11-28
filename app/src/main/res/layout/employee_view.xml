@@ -3,8 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:paddingTop="0dip"
     android:background="@color/colorBackground">
+=======
+    android:paddingTop="0dip">
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
     <TextView
         android:id="@+id/employee_Name"
@@ -40,7 +44,11 @@
 
     <TextView
         android:id="@+id/employee_ID"
+<<<<<<< HEAD
         android:layout_width="70dp"
+=======
+        android:layout_width="50dp"
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:visibility="visible"
@@ -48,6 +56,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+<<<<<<< HEAD
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -55,5 +64,7 @@
         android:layout_alignBottom="@+id/employee_Email"
         android:layout_alignParentRight="true"/>
 
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
 </RelativeLayout>

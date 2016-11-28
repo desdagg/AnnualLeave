@@ -7,7 +7,10 @@ import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
 /**
  * Created by Des on 12/11/2016.
@@ -15,13 +18,17 @@ import android.widget.Toast;
 
 public class DBManager {
 
+<<<<<<< HEAD
     //singleton instance
     private static DBManager sInstance;
 
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     private DBHandler dbHandler;
     private SQLiteDatabase myDatabase;
     private Context context;
 
+<<<<<<< HEAD
     //synchronized instance so the instance can only be viewd by one method at a time
     public static synchronized DBManager getInstance(Context context) {
         if (sInstance == null) {
@@ -39,6 +46,11 @@ public class DBManager {
         }catch (SQLiteCantOpenDatabaseException e){
             Log.e("DB exception: ", "unable to open the database",e);
         }
+=======
+    //constructor
+    public DBManager(Context c){
+        context = c;
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     }
 
     //open the database
@@ -58,7 +70,11 @@ public class DBManager {
         String[] employees = new String[] {DBHandler.COLUMN_EMPLOYEE_ID,
                 DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_EMPLOYEE_EMAIL,
                 DBHandler.COLUMN_EMPLOYEE_MANAGERID, DBHandler.COLUMN_LEAVE,
+<<<<<<< HEAD
                 DBHandler.COLUMN_EMPLOYEE_PASSWORD, DBHandler.COLUMN_ROLE};
+=======
+                DBHandler.COLUMN_EMPLOYEE_PASSWORD};
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         Cursor cursor = null;
 
         try{
@@ -72,6 +88,7 @@ public class DBManager {
         return cursor;
     }
 
+<<<<<<< HEAD
     //get the requests for individual employee
     public Cursor getRequestsPerEmployee(String employee_id){
         Cursor mCursor = null;
@@ -132,6 +149,31 @@ public class DBManager {
 
     //insert values into the database
     public void addEmployee(String name, String email, String mID, String eID, String leave, String password, String role){
+=======
+    public Cursor selectRequests(){
+        String[] requests = new String[] {DBHandler.COLUMN_REQUEST_ID,
+                DBHandler.COLUMN_REQUEST_START_DATE, DBHandler.COLUMN_REQUEST_END_DATE,
+                DBHandler.COLUMN_REQUEST_STATUS, DBHandler.COLUMN_REQUEST_EMPLOYEE_ID};
+        Cursor cursor = null;
+
+        try{
+            cursor = myDatabase.query(DBHandler.TABLE_REQUESTS, requests,null,null,null,null,null);
+            if (cursor != null){
+                cursor.moveToFirst();
+                System.out.println("yo in manager: " + cursor.getPosition());
+            }
+        }catch (SQLiteException e){
+            Log.e("DB exception: ", "",e);
+        }
+        return cursor;
+    }
+
+
+
+
+    //insert values into the database
+    public void insert(String name, String email, String mID, String eID, String leave, String password, String role){
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         ContentValues values = new ContentValues();
         values.put(DBHandler.COLUMN_EMPLOYEE_NAME, name);
         values.put(DBHandler.COLUMN_EMPLOYEE_EMAIL, email);
@@ -144,12 +186,19 @@ public class DBManager {
         //try catch for inserts
         try{
             myDatabase.insert(DBHandler.TABLE_EMPLOYEES, null, values);
+<<<<<<< HEAD
+=======
+            dbHandler.close();
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         }catch(SQLiteException e){
             Log.e("DB exception: ","",e);
         }
     }
 
+<<<<<<< HEAD
     //insert a new request to the database
+=======
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
     public void insertRequest(String start, String end, String status, String userId){
         ContentValues values = new ContentValues();
         values.put(DBHandler.COLUMN_REQUEST_START_DATE, start);
@@ -159,6 +208,10 @@ public class DBManager {
 
         try{
             myDatabase.insert(DBHandler.TABLE_REQUESTS, null, values);
+<<<<<<< HEAD
+=======
+            dbHandler.close();
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         }catch(SQLiteException e){
             Log.e("DB exception: ","",e);
         }
@@ -173,6 +226,7 @@ public class DBManager {
                 DBHandler.COLUMN_EMPLOYEE_NAME, DBHandler.COLUMN_ROLE, DBHandler.COLUMN_EMPLOYEE_ID};
         Cursor cursor = myDatabase.query(DBHandler.TABLE_EMPLOYEES, employees,null,null,null,null,null);
         return cursor;
+<<<<<<< HEAD
     }
 
     //method for approving a request
@@ -196,6 +250,11 @@ public class DBManager {
         System.out.println("gon delete: " + requestId);
         myDatabase.delete(DBHandler.TABLE_REQUESTS, DBHandler.COLUMN_REQUEST_ID + "=" + requestId, null);
     }
+=======
+
+    }
+
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
     //close the database
     public void close() {

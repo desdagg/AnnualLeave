@@ -2,8 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:weightSum="1"
     android:background="@color/colorBackground">
+=======
+    android:weightSum="1">
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
     <TextView
         android:text="TextView"
@@ -21,21 +25,37 @@
 
     <TextView
         android:text="TextView"
+<<<<<<< HEAD
         android:layout_width="85dp"
+=======
+        android:layout_width="wrap_content"
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         android:layout_height="50dp"
         android:id="@+id/req_end_date"
         android:layout_weight="0.36" />
 
+<<<<<<< HEAD
     <!--TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:id="@+id/req_id" /-->
+=======
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/req_id" />
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
+<<<<<<< HEAD
         android:layout_height="25dp"
+=======
+        android:layout_height="50dp"
+>>>>>>> 5055008babee058aa44497b659a32ed610132c74
         android:id="@+id/req_emp_id"
         android:layout_weight="0.26" />
 </LinearLayout>
